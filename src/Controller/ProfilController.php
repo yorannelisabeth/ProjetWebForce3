@@ -10,7 +10,7 @@ class ProfilController extends AbstractController
 {
     /**
      * @Route("/profil" , name="profil")
-     * @IsGranted("IS_AUTHENTICATED_FULLY")
+     
     
      */
     
