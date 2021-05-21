@@ -8,7 +8,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProfilController extends AbstractController
 {
-    #[Route('/profil', name: 'profil')]
+    /**
+     * @Route("/profil" , name="profil")
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
+    
+     */
+    
     public function index(): Response
     {
         return $this->render('profil/index.html.twig', [
