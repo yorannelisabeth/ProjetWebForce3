@@ -37,7 +37,7 @@
 			{# {% endif %} #}
 
 			{# la fonction 'is_granted()' permet de vérifier si l'utilisateur connect à la rôle passé en paramètre #}
-			{# {% if is_granted("ROLE_ADMIN") %} #}
+			{% if is_granted("ROLE_ADMIN") %} 
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Nos Produits
@@ -61,7 +61,7 @@
 				</li>
 
 		
-			{# {% endif %} #}
+			 {% endif %} 
 
 			{# {% if is_granted("ROLE_BIBLIO") %} #}
 			
