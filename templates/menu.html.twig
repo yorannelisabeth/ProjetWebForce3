@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
-	<a class="navbar-brand" href="{{ path("home") }}">Nom site ecommerce</a>
+	<a class="navbar-brand" href="{{ path("home") }}">Beauty & Wellness</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
@@ -12,7 +12,7 @@
 			{# {% if is_granted("IS_AUTHENTICATED_FULLY") %} #}
 				{# {% if app.user %} #}
 				<li class="nav-item">
-					<a class="nav-link" href="">
+					<a class="nav-link" href="{{ path("app_login") }}">
 						<i class="fa fa-user"></i>
 						{# {{ app.user.username }} #}
 						{#  {{ app.user.pseudo }} #}
@@ -21,17 +21,17 @@
 
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path("app_logout") }}">
-						<i class="fa fa-sign-out-alt">deco</i>
+						<i class="fa fa-sign-out-alt">déconnexion</i>
 					</a>
 				</li>
 			{# {% else %} #}
-				<li class="nav-item ">
+				{# <li class="nav-item ">
 					<a class="nav-link" href="{{ path("app_login") }}">
 						<i class="fa fa-sign-in-alt"></i>
 					</a>
-				</li>
+				</li> #}
 				<li class="nav-item ">
-					<a class="nav-link" href="{{ path("home") }}">Inscription
+					<a class="nav-link" href="{{ path("app_register") }}">Inscription
 					</a>
 				</li>
 			{# {% endif %} #}
@@ -40,13 +40,13 @@
 			{# {% if is_granted("ROLE_ADMIN") %} #}
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Livres
+						Nos Produits
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="">Liste</a>
+						<a class="dropdown-item" href="">categories</a>
 						<a class="dropdown-item" href="">Nouvel article</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Something else here</a>
+					
 					</div>
 				</li>
 
@@ -55,32 +55,16 @@
 						Utilisateur
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="">Liste</a>
-						<a class="dropdown-item" href="">Nouvel abonné</a>
+						<a class="dropdown-item" href="user">Liste</a>
+						
 					</div>
 				</li>
 
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Catégories
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="">Liste</a>
-						<a class="dropdown-item" href="">Nouvelle catégorie</a>
-					</div>
-				</li>
+		
 			{# {% endif %} #}
 
 			{# {% if is_granted("ROLE_BIBLIO") %} #}
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Emprunts
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="">Liste</a>
-						<a class="dropdown-item" href="">Nouvel emprunt</a>
-					</div>
-				</li>
+			
 			{# {% endif %} #}
 
 		</ul>
