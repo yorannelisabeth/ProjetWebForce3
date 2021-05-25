@@ -97,7 +97,7 @@ class LoginAuthenticator extends AbstractFormLoginAuthenticator implements Passw
 
         // For example : 
 
-        // ici nous souhaitonbs rediriger vers le profil de l'utilisateur grace au a la redirection a la vue :'profil_index'
+        // ici nous souhaitonbs rediriger vers le profil de l'utilisateur grace au a la redirection a la vue :'profil'
         return new RedirectResponse($this->urlGenerator->generate('profil'));
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
