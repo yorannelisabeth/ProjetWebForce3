@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ProduitRepository::class)
+ * @ORM\Table(name="Produit", indexes={@ORM\Index(columns={"nom", "category","marque"}, flags={"fulltext"})})
  */
 class Produit
 {
@@ -46,6 +47,11 @@ class Produit
      * @ORM\Column(type="text")
      */
     private $Description;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $marque;
 
     public function getId(): ?int
     {
@@ -120,6 +126,18 @@ class Produit
     public function setDescription(string $Description): self
     {
         $this->Description = $Description;
+
+        return $this;
+    }
+
+    public function getMarque(): ?string
+    {
+        return $this->marque;
+    }
+
+    public function setMarque(string $marque): self
+    {
+        $this->marque = $marque;
 
         return $this;
     }
