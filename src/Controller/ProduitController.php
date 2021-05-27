@@ -32,6 +32,28 @@ class ProduitController extends AbstractController
         navigateur */
 
         if ($formProduit->isSubmitted() && $formProduit->isValid()) {
+
+            $nouveauProduit = $formProduit ->getData(); // pour créer un nouveau produit 
+
+            $destination = $this->getParameter("dossier_images"); //le dossier dans lequel la photo sera telechargée
+
+            if($photoTelechargee = $formProduit->get("Photo")->getData()){ // si une photo est telechargée
+
+                $nomPhoto = pathinfo($photoTelechargee->getClientOriginalName(), PATHINFO_FILENAME); // je recup le nom de cette photo dans $nomPhoto
+
+                $nouveauNom = str_replace(" ", "_", $nomPhoto); // remplacer des espaces par des photos
+
+                $nouveauNom .= "-" . uniqid() . "." . $photoTelechargee->guessExtension(); // on precise les extensions pour eviter 
+                //d'avoir deux fichiers avec deux noms
+
+                $photoTelechargee->move($destination, $nouveauNom); // enregistrement de la photo dans le fichier $destination
+
+                $nouveauProduit->setPhoto($nouveauNom); // mise à jour du nom de la photo
+
+                $em->persist($nouveauProduit);
+                $em->flush();
+
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($produit);
             $entityManager->flush();
@@ -43,8 +65,7 @@ class ProduitController extends AbstractController
 
 
     #[Route('/{id}', name: 'produit_show', methods: ['GET'])]
-    public function show(Produit $produit): Response
-    {
+    public function show(Produit $produit): Response{
         return $this->render('produit/show.html.twig', [
             'produit' => $produit,
         ]);
