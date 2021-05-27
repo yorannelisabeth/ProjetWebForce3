@@ -21,14 +21,12 @@
         <tbody>
         {% for produit in produits %}
             <tr>
-                 <td>{{ produit.Category }}</td>
-                 <td>{{ produit.Nom }}</td>
-
-                {# //this.produit.nom #}
-                
-                <td>{{ produit.Prix }}</td>
-                <td>{{ produit.Photo }}</td>
-                <td>{{ produit.Description }}</td>
+                 <td>{{ produit.category }}</td>
+                 <td>{{ produit.nom }}</td>
+                <td>{{ produit.marque }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.photo }}</td>
+                <td>{{ produit.description }}</td>
              
             </tr>
         {% else %}
