@@ -22,11 +22,12 @@ class ProduitController extends AbstractController
             'liste_categories'=>$produitRepository->listecategorie()
             
         ]);
+    
     }
 
 
     #[Route('/new', name: 'produit_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManager $em )
+    public function new(Request $request, EntityManager $em , ProduitRepository $pr )
     {
         $produit = new Produit();
         $formProduit = $this->createForm(ProduitType::class, $produit);
@@ -62,20 +63,23 @@ class ProduitController extends AbstractController
             return $this->redirectToRoute('produit_index');
         }
 
-        return $this->render('produit/new.html.twig', ['form' => $formProduit->createView()]);
+        return $this->render('produit/new.html.twig', ['form' => $formProduit->createView(),
+        'liste_categories'=>$pr->listecategorie()
+        ]);
     }
 
 
     #[Route('/{id}', name: 'produit_show', methods: ['GET'])]
-    public function show(Produit $produit): Response{
+    public function show(Produit $produit, ProduitRepository $pr): Response{
         return $this->render('produit/show.html.twig', [
             'produit' => $produit,
+            'liste_categories'=>$pr->listecategorie()
         ]);
     }
 
 
     #[Route('/{id}/edit', name: 'produit_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request,EntityManager $em, Produit $produit): Response
+    public function edit(Request $request,EntityManager $em, Produit $produit, ProduitRepository $pr): Response
     {
     
         $formProduit = $this->createForm(ProduitType::class, $produit);
@@ -87,12 +91,13 @@ class ProduitController extends AbstractController
             return $this->redirectToRoute('produit_index');
         }
 
-        return $this->render('produit/new.html.twig', ['form' => $formProduit->createView()]);
+        return $this->render('produit/new.html.twig', ['form' => $formProduit->createView(),
+        'liste_categories'=>$pr->listecategorie()]);
     }
 
 
     #[Route('/{id}', name: 'produit_delete', methods: ['POST'])]
-    public function delete(EntityManager $em,Request $request, Produit $produit): Response
+    public function delete(EntityManager $em,Request $request, Produit $produit,ProduitRepository $pr): Response
     {
         if ($this->isCsrfTokenValid('delete'.$produit->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -101,6 +106,7 @@ class ProduitController extends AbstractController
         }
 
         return $this->redirectToRoute('produit_index');
-     return $this->render('produit/delete.html.twig', ["produit" => $produit]);
+     return $this->render('produit/delete.html.twig', ["produit" => $produit,
+        'liste_categories'=>$pr->listecategorie()]);
     }
 }

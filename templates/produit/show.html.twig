@@ -16,9 +16,14 @@
                 <td>{{ produit.Nom }}</td>
             </tr>
             <tr>
+                <th>Marque</th>
+                <td>{{ produit.marque }}</td>
+            </tr>
+            <tr>
                 <th>Category</th>
                 <td>{{ produit.Category }}</td>
             </tr>
+            
             <tr>
                 <th>Stock</th>
                 <td>{{ produit.Stock }}</td>
@@ -37,10 +42,13 @@
             </tr>
         </tbody>
     </table>
-
+    
+{% if is_granted("ROLE_ADMIN") %}
     <a href="{{ path('produit_index') }}">back to list</a>
 
     <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>
 
     {{ include('produit/_delete_form.html.twig') }}
+
+    {% endif %}
 {% endblock %}
