@@ -7,10 +7,11 @@
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul
 			class="navbar-nav mr-auto">
-			{# Dans les fichiers Twig, on peut accéder à une variable globale 'app'.
-						          app.user : si app.user est non null, contient une objet user (classe Abonne) qui contient les informations de l'utilisateur connecté #}
+		
+
 
 			{% if is_granted("IS_AUTHENTICATED_FULLY") %}
+
 				{# {% if app.user %} #}
 
 
@@ -19,7 +20,17 @@
 						<i class="fa fa-sign-out-alt">déconnexion</i>
 					</a>
 				</li>
-			{% else %}
+
+
+				<li class="nav-item ">
+					<a class="nav-link" href="{{ path("panier_index") }}">Panier
+					</a>
+				</li>
+
+		 	{% else %} 
+
+			
+
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path("app_login") }}">
 						<i class="fa fa-user"></i>
@@ -34,8 +45,8 @@
 					<a class="nav-link" href="{{ path("app_register") }}">Inscription
 					</a>
 				</li>
-
-				<li class="nav-item dropdown">
+        
+        <li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Categories
 					</a>
@@ -50,9 +61,13 @@
 				</li>
 
 			</ul>
-		{% endif %}
+{% endif %}
 
-		{# la fonction 'is_granted()' permet de vérifier si l'utilisateur connect à la rôle passé en paramètre #}
+
+
+
+
+		
 
 		{% if is_granted("ROLE_ADMIN") %}
 
@@ -94,15 +109,9 @@
 
 		</ul>
 
-			{% else %}
+			
 
 
-		{# ------------------------------------------------------------------------------ #}
-
-
-			{# {% endfor %} #}
-
-			{# ------------------------------------------------------------------------------ #}
 
 		{% endif %}
 		<form class="form-inline my-2 my-lg-0" action="{{ path("search") }}">
