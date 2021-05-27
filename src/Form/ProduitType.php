@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Produit;
 use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -34,10 +35,17 @@ class ProduitType extends AbstractType
                 "required" => true,
                 "label" => "Prix",
             ] )
-            ->add('Photo')
+            ->add('Photo', FileType::class,[
+                "mapped" => false,
+                
+            ])
             ->add('Description', TextareaType::class,[
                 "required" => true,
                 "label" => "Description",
+            ])
+            ->add('marque', TextType::class,[
+                "required" => true,
+                "label" => "Marque",
             ])
         ;
     }
