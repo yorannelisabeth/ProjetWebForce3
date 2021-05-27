@@ -19,6 +19,8 @@ class ProduitController extends AbstractController
     {
         return $this->render('produit/index.html.twig', [
             'produits' => $produitRepository->findAll(),  /*Pour recupe tous les enregistrements de la table et retourner une liste */
+            'liste_categories'=>$produitRepository->listecategorie()
+            
         ]);
     }
 

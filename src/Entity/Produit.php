@@ -20,32 +20,32 @@ class Produit
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $Nom;
+    private $nom;
 
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $Category;
+    private $category;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $Stock;
+    private $stock;
 
     /**
      * @ORM\Column(type="float")
      */
-    private $Prix;
+    private $prix;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Photo;
+    private $photo;
 
     /**
      * @ORM\Column(type="text")
      */
-    private $Description;
+    private $description;
 
     public function getId(): ?int
     {
@@ -54,72 +54,72 @@ class Produit
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
-    public function setNom(string $Nom): self
+    public function setNom(string $nom): self
     {
-        $this->Nom = $Nom;
+        $this->nom = $nom;
 
         return $this;
     }
 
     public function getCategory(): ?string
     {
-        return $this->Category;
+        return $this->category;
     }
 
-    public function setCategory(string $Category): self
+    public function setCategory(string $category): self
     {
-        $this->Category = $Category;
+        $this->category = $category;
 
         return $this;
     }
 
     public function getStock(): ?int
     {
-        return $this->Stock;
+        return $this->stock;
     }
 
-    public function setStock(?int $Stock): self
+    public function setStock(?int $stock): self
     {
-        $this->Stock = $Stock;
+        $this->stock = $stock;
 
         return $this;
     }
 
     public function getPrix(): ?float
     {
-        return $this->Prix;
+        return $this->prix;
     }
 
-    public function setPrix(float $Prix): self
+    public function setPrix(float $prix): self
     {
-        $this->Prix = $Prix;
+        $this->prix = $prix;
 
         return $this;
     }
 
     public function getPhoto(): ?string
     {
-        return $this->Photo;
+        return $this->photo;
     }
 
-    public function setPhoto(string $Photo): self
+    public function setPhoto(string $photo): self
     {
-        $this->Photo = $Photo;
+        $this->photo = $photo;
 
         return $this;
     }
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    public function setDescription(string $Description): self
+    public function setDescription(string $description): self
     {
-        $this->Description = $Description;
+        $this->description = $description;
 
         return $this;
     }
