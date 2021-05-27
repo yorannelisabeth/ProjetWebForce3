@@ -70,9 +70,10 @@ class ProduitController extends AbstractController
 
 
     #[Route('/{id}', name: 'produit_show', methods: ['GET'])]
-    public function show(Produit $produit): Response{
+    public function show(Produit $produit, ProduitRepository $pr): Response{
         return $this->render('produit/show.html.twig', [
             'produit' => $produit,
+            'liste_categories'=>$pr->listecategorie()
         ]);
     }
 
