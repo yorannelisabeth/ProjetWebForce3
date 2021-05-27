@@ -20,12 +20,28 @@
 						<i class="fa fa-sign-out-alt">déconnexion</i>
 					</a>
 				</li>
+				 <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Categories
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						{% for categorie in liste_categories %}
 
+
+							<a class="dropdown-item" href="{{ path('productByCategorie', {category: categorie.category}) }}">{{categorie.category}}</a>
+							{# categorie.category :  category correspond a la valeur du chamlp category  #}
+						{% endfor %}
+					</div>
+				</li>
 
 				<li class="nav-item ">
 					<a class="nav-link" href="{{ path("panier_index") }}">Panier
 					</a>
 				</li>
+
+			</ul>
+
+				
 
 		 	{% else %} 
 
