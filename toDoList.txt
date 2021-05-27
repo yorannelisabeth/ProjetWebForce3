@@ -1,0 +1,10 @@
+#Gestion des accès  
+#produits et user (admin)  
+#gestion des photos (admin)  
+#affichage des produits (en fonctions des catégories)  
+#gestion du panier 
+#possibilité d'acheter  
+#identifiants oubliés (bonus), mail…  
+#search bar de recherche  
+#Read me 
+#Front
