@@ -83,7 +83,7 @@
 					 {% for categorie in liste_categories %}
 
 					
-						<a class="dropdown-item" href="">{{categorie.category}}</a>
+						<a class="dropdown-item" href="{{ path('productByCategorie', {category: categorie.category}) }}">{{categorie.category}}</a>
 						{# categorie.category :  category correspond a la valeur du chamlp category  #}
 					{% endfor %}
 					</div>
