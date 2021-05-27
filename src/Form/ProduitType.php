@@ -39,6 +39,10 @@ class ProduitType extends AbstractType
                 "required" => true,
                 "label" => "Description",
             ])
+            ->add('marque', TextType::class,[
+                "required" => true,
+                "label" => "Marque",
+            ])
         ;
     }
 
