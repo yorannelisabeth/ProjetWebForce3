@@ -3,5 +3,11 @@
 {% block title %}Accueil Beauty & Wellness{% endblock %}
 
 {% block body %}
+{{form(form)}}
+{% for produit in produits %}
+    <p>{{produit.Nom}}</p>
+{% endfor %}
+    
+
 
 {% endblock %}
