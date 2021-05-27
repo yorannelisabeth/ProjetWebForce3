@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit {{app.produit.categorie}}{% endblock %}
+
+{% block body %}
+  
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                
+                <th>Categorie</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Photo</th>
+                <th>Description</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                 <td>{{ produit.Category }}</td>
+                 <td>{{ produit.Nom }}</td>
+
+                {# //this.produit.nom #}
+                
+                <td>{{ produit.Prix }}</td>
+                <td>{{ produit.Photo }}</td>
+                <td>{{ produit.Description }}</td>
+             
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

@@ -9,35 +9,37 @@
 			{# Dans les fichiers Twig, on peut accéder à une variable globale 'app'.
 			          app.user : si app.user est non null, contient une objet user (classe Abonne) qui contient les informations de l'utilisateur connecté #}
 
-			{# {% if is_granted("IS_AUTHENTICATED_FULLY") %} #}
+			 {% if is_granted("IS_AUTHENTICATED_FULLY") %} 
 				{# {% if app.user %} #}
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path("app_login") }}">
-						<i class="fa fa-user"></i>
-						{# {{ app.user.username }} #}
-						{#  {{ app.user.pseudo }} #}
-					</a>
-				</li>
+
+			
 
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path("app_logout") }}">
 						<i class="fa fa-sign-out-alt">déconnexion</i>
 					</a>
 				</li>
-			{# {% else %} #}
-				{# <li class="nav-item ">
+		 {% else %} 
+				<li class="nav-item">
 					<a class="nav-link" href="{{ path("app_login") }}">
-						<i class="fa fa-sign-in-alt"></i>
+						<i class="fa fa-user"></i>
+
+						{# {{ app.user.username }} #}
+						{#  {{ app.user.pseudo }} #}
+
 					</a>
-				</li> #}
+				</li>
+			
 				<li class="nav-item ">
 					<a class="nav-link" href="{{ path("app_register") }}">Inscription
 					</a>
 				</li>
-			{# {% endif %} #}
+			 {% endif %} 
 
 			{# la fonction 'is_granted()' permet de vérifier si l'utilisateur connect à la rôle passé en paramètre #}
-			{# {% if is_granted("ROLE_ADMIN") %} #}
+
+			{% if is_granted("ROLE_ADMIN") %} 
+
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Nos Produits
@@ -52,22 +54,43 @@
 
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Utilisateur
+						Utilisateurs
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="{{ path("user_index") }}">Liste</a>
+						<a class="dropdown-item" href="{{ path("user_index") }}">Liste des utilisateurs</a>
 						
 					</div>
 				</li>
 
-		
-			{# {% endif %} #}
-
-			{# {% if is_granted("ROLE_BIBLIO") %} #}
+		{% else %}
 			
-			{# {% endif %} #}
+			 
+
+			 {# ------------------------------------------------------------------------------ #}
+			
+				 
+			
+			 
+
+				 {# {% endfor %} #}
+
+			 {# ------------------------------------------------------------------------------ #}
+			 	<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Categories
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					 {% for categorie in liste_categories %}
+
+					
+						<a class="dropdown-item" href="">{{categorie.category}}</a>
+						{# categorie.category :  category correspond a la valeur du chamlp category  #}
+					{% endfor %}
+					</div>
+				</li>
 
 		</ul>
+ {% endif %} 
 		<form class="form-inline my-2 my-lg-0" action="{{ path("home") }}">
 			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="mot">
 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

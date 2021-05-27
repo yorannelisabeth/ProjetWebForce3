@@ -3,3 +3,6 @@ créé une page C.G.U  condition general d'utilisation
 et mettre le lien de la vu dans le registrationformtype.php (voir comment faire ) ⚠ lien qui ouvre un nouvelle page bien sûr
 
 juste après : 'message' => 'Vous devez accepter les C.G.U.',
+
+
+-retirer les majuscules du entity Produit plus effectuer migration pour mettre a jours
