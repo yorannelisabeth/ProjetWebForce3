@@ -39,7 +39,7 @@ class ProduitController extends AbstractController
 
             $destination = $this->getParameter("dossier_images"); //le dossier dans lequel la photo sera telechargée
 
-            if($photoTelechargee = $formProduit->get("Photo")->getData()){ // si une photo est telechargée
+            if($photoTelechargee = $formProduit->get("photo")->getData()){ // si une photo est telechargée
 
                 $nomPhoto = pathinfo($photoTelechargee->getClientOriginalName(), PATHINFO_FILENAME); // je recup le nom de cette photo dans $nomPhoto
 
