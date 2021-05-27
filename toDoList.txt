@@ -11,6 +11,7 @@
 #Affichage des photos
 #Page CGU  
 #Read me 
+#Forcer a se connecter
 
 #Front MA
 #Afficher 10 produits dans les best-sellers
