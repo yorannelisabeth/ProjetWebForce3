@@ -50,6 +50,21 @@ class ProduitRepository extends ServiceEntityRepository
 
 
     /*
+    * recherche les produit en foncition du form
+    * @return void 
+    */
+    public function search($mot){
+        $query = $this->createQueryBuilder('p');
+        if($mot != null){
+            $query->andWhere('MATCH_AGAINST(p.Nom, p.marque, p.Category) AGAINST (:mot boolean)>0')
+                ->setParameter('mot', $mot);
+        }
+
+        return $query->getQuery()->getResult();
+
+    }
+
+    /*
     public function findOneBySomeField($value): ?Produit
     {
         return $this->createQueryBuilder('p')
