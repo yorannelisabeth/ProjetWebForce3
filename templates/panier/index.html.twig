@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre panier{% endblock %}
+
+{% block body %}
+
+    {% if items| length > 0  %}
+        <table class= "table">
+            <thead>
+                <tr>
+                    <th>Produit </th>
+                    <th>Prix</th>
+                    <th>Quantité </th>
+                    <th>Total</th>
+                    <th></th>
+                    </tr>
+            </thead>
+
+            <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td><{{ item.produit.titre }}/td>
+                        <td>{{ item.produit.prix }}</td>
+                        <td>{{item.quantité }}</td>
+                        <td>{{ item.produit.prix * item.quantité }}</td>
+                        <td>
+                            <a href="#" class= "btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                            
+                        </td>
+                    </tr>
+                    
+                {% endfor %}
+            </tbody>
+        </table>
+
+    {% else %}
+        votre panier est vide !
+
+    {% endif %}
+
+{% endblock %}

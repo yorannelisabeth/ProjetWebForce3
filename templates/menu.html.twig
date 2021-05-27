@@ -9,7 +9,7 @@
 			{# Dans les fichiers Twig, on peut accéder à une variable globale 'app'.
 			          app.user : si app.user est non null, contient une objet user (classe Abonne) qui contient les informations de l'utilisateur connecté #}
 
-			 {% if is_granted("IS_AUTHENTICATED_FULLY") %} 
+			{% if is_granted("IS_AUTHENTICATED_FULLY") %} 
 				{# {% if app.user %} #}
 
 			
@@ -19,7 +19,13 @@
 						<i class="fa fa-sign-out-alt">déconnexion</i>
 					</a>
 				</li>
-		 {% else %} 
+
+				<li class="nav-item ">
+					<a class="nav-link" href="{{ path("panier_index") }}">Panier
+					</a>
+				</li>
+
+		 	{% else %} 
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path("app_login") }}">
 						<i class="fa fa-user"></i>
@@ -34,7 +40,11 @@
 					<a class="nav-link" href="{{ path("app_register") }}">Inscription
 					</a>
 				</li>
-			 {% endif %} 
+
+				
+
+
+			{% endif %} 
 
 			{# la fonction 'is_granted()' permet de vérifier si l'utilisateur connect à la rôle passé en paramètre #}
 
@@ -62,7 +72,7 @@
 					</div>
 				</li>
 
-		{% else %}
+			{% else %}
 			
 			 
 
