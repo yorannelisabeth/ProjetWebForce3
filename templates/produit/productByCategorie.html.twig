@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Produit {{app.produit.categorie}}{% endblock %}
+{# {% block title %}Categorie {{produit.category}}{% endblock %} #}
 
 {% block body %}
   
@@ -10,18 +10,20 @@
             <tr>
                 
                 
-                <th>Categorie</th>
+               
                 <th>Nom</th>
+                <th>Marque</th>
                 <th>Prix</th>
+                
                 <th>Photo</th>
                 <th>Description</th>
                 
             </tr>
         </thead>
         <tbody>
-        {% for produit in produits %}
+        {% for produit in listeproduitcategorie %}
             <tr>
-                 <td>{{ produit.category }}</td>
+                 
                  <td>{{ produit.nom }}</td>
                 <td>{{ produit.marque }}</td>
                 <td>{{ produit.prix }}</td>
