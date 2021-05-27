@@ -1,10 +1,17 @@
-#Gestion des accès  
-#produits et user (admin)  
-#gestion des photos (admin)  
-#affichage des produits (en fonctions des catégories)  
-#gestion du panier 
-#possibilité d'acheter  
-#identifiants oubliés (bonus), mail…  
-#search bar de recherche  
+#Gestion des accès   /Ok
+#Produits et user (admin)   /Ok
+#Gestion des photos (admin)  /Ok
+#Affichage des produits (en fonctions des catégories)  YE
+#Gestion du panier     MC
+#Possibilité d'acheter  
+#Identifiants oubliés (bonus), mail…  
+#Search bar de recherche     TC
+#Vérification des champs   FM
+#Inscription et formulaire restriction
+#Affichage des photos
+#Page CGU  
 #Read me 
-#Front
+
+#Front MA
+#Afficher 10 produits dans les best-sellers
+#Unsplash pour les images libre de droit  https://unsplash.com/
