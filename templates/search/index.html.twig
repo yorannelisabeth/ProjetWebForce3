@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SearchController!{% endblock %}
+
+{% block body %}
+    <div class="card-columns">
+    {# //card-column   card-deck #}
+        {% for p in Produit %}
+            {{include("produit/carte.html.twig", {produit:p}) }}    
+
+            {# autre facon de faire si on veut passer une nouvelle variable 
+                 {% for l in livres %}
+                {{include("livre/vignette.html.twig",{livre: l})}}  
+            #}
+            {% else %}
+                  {{message|default("Il n'y a aucun produit correspondants frérot")}}
+        {% endfor %}
+    </div>
+
+{% endblock %}
