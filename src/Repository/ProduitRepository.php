@@ -69,6 +69,19 @@ class ProduitRepository extends ServiceEntityRepository
 
     }
 
+    public function affichagebestseller(){
+    //foinction a modifié par la suite en fonction du nombre de produit acheter
+        return $this->createQueryBuilder("p")
+        // ->select("*")
+        ->orderBy("p.category")
+        ->setMaxResults(10)
+        ->getQuery()
+        ->getResult()
+        
+        ;
+        
+    
+    }
     /*
     public function findOneBySomeField($value): ?Produit
     {

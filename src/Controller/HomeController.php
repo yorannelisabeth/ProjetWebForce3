@@ -16,6 +16,7 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
 
             'liste_categories' => $Pr->listecategorie('$categorie'),
+            'affichageBestSeller' => $Pr->affichagebestseller()
         ]);
     }
 
@@ -27,6 +28,7 @@ class HomeController extends AbstractController
 
             'listeproduitcategorie' => $Pr->listeproduitcategorie($category),
             'liste_categories' => $Pr->listecategorie('$categorie')
+            
 
         ]);
 
