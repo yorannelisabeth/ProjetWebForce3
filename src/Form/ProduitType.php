@@ -12,6 +12,9 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Blank;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ProduitType extends AbstractType
 {
@@ -20,12 +23,28 @@ class ProduitType extends AbstractType
         $builder
             ->add('nom', TextType::class,[
                 "label" => "Nom du produit",
-                "required" => true,
+                "required" => "false",
+                "constraints" => [
+                    new Length([
+                        'min' => 2,
+                        'minMessage' => 'Your Product Name should be at least {{ limit }} characters',
+                        'max' => 99,
+                    ])
+                    
+                ]
+                
 
             ])
             ->add('category', TextType::class,[
-                "required" => true,
+                "required" => "false",
                 "label" => "Categorie",
+                "constraints" => [
+                    new Length([
+                        'min' => 2,
+                        'minMessage' => 'Your Category Name should be at least {{ limit }} characters',
+                        'max' => 99,
+                    ])
+                ]
             ])
             ->add('stock',IntegerType::class,[
                 "label" => "Stock",
@@ -36,16 +55,32 @@ class ProduitType extends AbstractType
                 "label" => "Prix",
             ] )
             ->add('photo', FileType::class,[
-                "mapped" => false,
-                
+                "mapped" => false, 
             ])
             ->add('description', TextareaType::class,[
-                "required" => true,
+                "required" => "false",
                 "label" => "Description",
+                "constraints" => [
+                    new Length([
+                        'min' => 10,
+                        'minMessage' => 'Your description should be at least {{ limit }} characters',
+                        'max' => 3000,
+                    ])
+                ]
             ])
             ->add('marque', TextType::class,[
-                "required" => true,
+                "required" => "false",
                 "label" => "Marque",
+                "constraints" => [
+                    new NotBlank([
+                        'message' => 'Please write a Brand'
+                    ]),
+                    new Length([
+                        'min' => 2,
+                        'minMessage' => 'Your Brand should be at least {{ limit }} characters',
+                        'max' => 100,
+                    ])
+                ]
             ])
         ;
     }
