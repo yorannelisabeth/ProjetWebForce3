@@ -28,15 +28,23 @@ class PanierController extends AbstractController
                 'quantité' => $quantité
             ];
         }
+        $total = 0 ;
+
+        foreach ($panierProduits as $item){
+            $totalItem = $item['produit']->getprix() * $item['quantité'];
+            $total += $totalItem;
+        }
+
         return $this->render('panier/index.html.twig', [
 
-            'items' => $panierProduits , 'liste_categories'=>$produitRepository->listecategorie('$categorie')
+            'items' => $panierProduits , 'liste_categories'=>$produitRepository->listecategorie('$categorie'),
+            'total' => $total
         ]);
     }
 
-    #[Route('/ajout/{id}', name: 'panier_ajout')]
+    #[Route('/ajout/{id}', name: 'ajout_produit')]
 
-    public function ajoutPanier($id, SessionInterface $session ) {
+    public function ajoutProduit($id, SessionInterface $session ) {
         //sessionInterface qui est obtenu par le conteneur de servive par la commande 
         //symfony console debug:autowiring session
 
@@ -53,9 +61,29 @@ class PanierController extends AbstractController
         }
          // l'id qui respresente l'id d'un produit du panier a laquelle j'attribue la valeur 1 
 
-        $session -> set('panier',$panier);
+        $session -> set('panier', $panier);
 
+    return $this->redirectToRoute("panier_index");
 
 
     }
-}
+
+    #[Route('/remove/{id}', name: 'remove_produit')]
+
+    public function remove ($id, SessionInterface $session){
+        $panier = $session-> get('panier', []);
+
+        if(!empty($panier[$id])){
+            unset($panier[$id]);
+        }
+        $session->set('panier', $panier);
+
+    return $this->redirectToRoute("panier_index");
+    }
+
+
+}   
+
+
+
+
