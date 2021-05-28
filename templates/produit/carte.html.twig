@@ -1,9 +1,10 @@
 
 <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="pas d'image">
+    <img src="/img/{{produit.photo}}" alt="">
     <div class="card-body">
       <h5 class="card-title">{{ produit.nom }}</h5>
       <p class="card-text">{{ produit.marque }}</p> 
+      
       <a href="{{ path("produit_show", {id: produit.id}) }}" class="btn btn-primary">Regarder!</a>
     </div>
   </div>
