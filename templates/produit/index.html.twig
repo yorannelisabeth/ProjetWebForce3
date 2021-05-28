@@ -10,6 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
+                <th>Marque</th>
                 <th>Category</th>
                 <th>Stock</th>
                 <th>Prix</th>
@@ -23,6 +24,7 @@
             <tr>
                 <td>{{ produit.id }}</td>
                 <td>{{ produit.Nom }}</td>
+                <td>{{ produit.marque }}</td>
                 <td>{{ produit.Category }}</td>
                 <td>{{ produit.Stock }}</td>
                 <td>{{ produit.Prix }}</td>
@@ -31,6 +33,8 @@
                 <td>
                     <a href="{{ path('produit_show', {'id': produit.id}) }}">show</a>
                     <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>
+                    <a href="{{ path('panier_ajout', {'id': produit.id}) }}">add</a>
+
                 </td>
             </tr>
         {% else %}

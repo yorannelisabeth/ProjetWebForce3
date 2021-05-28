@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Produit;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Mapping\OrderBy;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -53,17 +54,34 @@ class ProduitRepository extends ServiceEntityRepository
     * recherche les produit en foncition du form
     * @return void 
     */
-    public function search($mot){
-        $query = $this->createQueryBuilder('p');
-        if($mot != null){
-            $query->andWhere('MATCH_AGAINST(p.Nom, p.marque, p.Category) AGAINST (:mot boolean)>0')
-                ->setParameter('mot', $mot);
-        }
-
-        return $query->getQuery()->getResult();
+    public function search($value){
+        return $this->createQueryBuilder('p')// on donne l'alias de la table produit
+        ->where("p.nom LIKE :mot ")
+        ->orWhere("p.category LIKE :mot")
+        ->orWhere("p.marque LIKE :mot") 
+        ->setParameter("mot","%". $value ."%")
+        ->setMaxResults(5)
+        ->addOrderBy("p.nom")
+        ->getQuery()
+        ->getResult()
+        ;
+        
 
     }
 
+    public function affichagebestseller(){
+    //foinction a modifié par la suite en fonction du nombre de produit acheter
+        return $this->createQueryBuilder("p")
+        // ->select("*")
+        ->orderBy("p.category")
+        ->setMaxResults(10)
+        ->getQuery()
+        ->getResult()
+        
+        ;
+        
+    
+    }
     /*
     public function findOneBySomeField($value): ?Produit
     {

@@ -5,21 +5,48 @@
 	</button>
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto">
-			{# Dans les fichiers Twig, on peut accéder à une variable globale 'app'.
-			          app.user : si app.user est non null, contient une objet user (classe Abonne) qui contient les informations de l'utilisateur connecté #}
+		<ul
+			class="navbar-nav mr-auto">
+		
 
-			 {% if is_granted("IS_AUTHENTICATED_FULLY") %} 
+
+			{% if is_granted("IS_AUTHENTICATED_FULLY") %}
+
 				{# {% if app.user %} #}
 
-			
 
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path("app_logout") }}">
 						<i class="fa fa-sign-out-alt">déconnexion</i>
 					</a>
 				</li>
-		 {% else %} 
+				 <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Categories
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						{% for categorie in liste_categories %}
+
+
+							<a class="dropdown-item" href="{{ path('productByCategorie', {category: categorie.category}) }}">{{categorie.category}}</a>
+							{# categorie.category :  category correspond a la valeur du chamlp category  #}
+						{% endfor %}
+					</div>
+				</li>
+
+				<li class="nav-item ">
+					<a class="nav-link" href="{{ path("panier_index") }}">Panier
+					</a>
+				</li>
+
+			</ul>
+
+				
+
+		 	{% else %} 
+
+			
+
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path("app_login") }}">
 						<i class="fa fa-user"></i>
@@ -29,52 +56,59 @@
 
 					</a>
 				</li>
-			
+
 				<li class="nav-item ">
 					<a class="nav-link" href="{{ path("app_register") }}">Inscription
 					</a>
 				</li>
-			 {% endif %} 
-
-			{# la fonction 'is_granted()' permet de vérifier si l'utilisateur connect à la rôle passé en paramètre #}
-
-			{% if is_granted("ROLE_ADMIN") %} 
-
-				<li class="nav-item dropdown">
+        
+        <li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Nos Produits
+						Categories
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="{{ path("produit_index") }}">Liste des produits</a>
-						
-						<div class="dropdown-divider"></div>
-					
+						{% for categorie in liste_categories %}
+
+
+							<a class="dropdown-item" href="{{ path('productByCategorie', {category: categorie.category}) }}">{{categorie.category}}</a>
+							{# categorie.category :  category correspond a la valeur du chamlp category  #}
+						{% endfor %}
 					</div>
 				</li>
 
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Utilisateurs
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="{{ path("user_index") }}">Liste des utilisateurs</a>
-						
-					</div>
-				</li>
+			</ul>
+{% endif %}
 
-		{% else %}
-			
-			 
 
-			 {# ------------------------------------------------------------------------------ #}
-			
-				 
-			
-			 
 
-				 {# {% endfor %} #}
 
-			 {# ------------------------------------------------------------------------------ #}
+
+		
+
+		{% if is_granted("ROLE_ADMIN") %}
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Nos Produits
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="{{ path("produit_index") }}">Liste des produits</a>
+
+					<div class="dropdown-divider"></div>
+
+				</div>
+			</li>
+
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Utilisateurs
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="{{ path("user_index") }}">Liste des utilisateurs</a>
+
+				</div>
+			</li>
+
 			 	<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Categories
@@ -83,15 +117,20 @@
 					 {% for categorie in liste_categories %}
 
 					
-						<a class="dropdown-item" href="">{{categorie.category}}</a>
+						<a class="dropdown-item" href="{{ path('productByCategorie', {category: categorie.category}) }}">{{categorie.category}}</a>
 						{# categorie.category :  category correspond a la valeur du chamlp category  #}
 					{% endfor %}
 					</div>
 				</li>
 
 		</ul>
- {% endif %} 
-		<form class="form-inline my-2 my-lg-0" action="{{ path("home") }}">
+
+			
+
+
+
+		{% endif %}
+		<form class="form-inline my-2 my-lg-0" action="{{ path("search") }}">
 			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="mot">
 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 		</form>
