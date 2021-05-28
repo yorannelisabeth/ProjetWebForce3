@@ -31,14 +31,14 @@
   </div>
 </div>
 <div class="row bg-light">
-    
+    {#%for product in products %#}
       <div class="col-sm-6 col-md-4 p-5">
         <div class="thumbnail">
           <img src="" alt="" class="img-thumbnail">
-          <div class="price"> var price €</div>
+          <div class="price">  {# product.price}#} €</div>
           <div class="caption">
-            <h4 class="text-center p-2">var product name</h4>
-            <p class="text-center">var product description</p>
+            <h4 class="text-center p-2">{# product.name}#}</h4>
+            <p class="text-center">{# product.description}#}</p>
             <div class="col-12 d-flex justify-content-between detail">
               <a href="" class="btn btn-order" role="button"><span><i class="fas fa-eye"></i></span> Voir l'article</a>
               <a href="" class="btn btn-order" role="button"><span><i class="fas fa-shopping-cart"></i></span> Ajouter au panier</a>
@@ -46,6 +46,7 @@
           </div>
         </div>
       </div>
+      {#%end for #}
       
   
   </div>
@@ -77,7 +78,7 @@
       <div class="col-sm-6 col-md-6 p-5">
         <div class="thumbnail">
           <img src="" alt="" class="img-thumbnail">
-          <div class="price"> €</div>
+          <div class="price">20 €</div>
           <div class="caption">
             <h4 class="text-center p-2"></h4>
             <p class="text-center"></p>
@@ -112,6 +113,14 @@
     </div>
   </div>
 </div>
+
+
+<footer>
+  
+  
+  
+</footer>
+
 
 
 
