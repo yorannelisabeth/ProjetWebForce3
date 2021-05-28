@@ -25,7 +25,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/new', name: 'user_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, Encoder $encoder): Response
+    public function new(Request $request, Encoder $encoder, ProduitRepository $pr): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -50,6 +50,7 @@ class UserController extends AbstractController
         return $this->render('user/new.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
+            'liste_categories'=>$pr->listecategorie()
         ]);
     }
 
@@ -62,7 +63,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'user_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, User $user, Encoder $encoder): Response
+    public function edit(Request $request, User $user, Encoder $encoder, ProduitRepository $pr): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
@@ -81,6 +82,7 @@ class UserController extends AbstractController
         return $this->render('user/edit.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
+            'liste_categories'=>$pr->listecategorie()
         ]);
     }
 
