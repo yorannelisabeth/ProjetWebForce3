@@ -3,6 +3,7 @@
 {% block title %}Votre panier{% endblock %}
 
 {% block body %}
+    <h1>Votre Panier</h1>
 
     {% if items| length > 0  %}
         <table class= "table">
@@ -19,12 +20,12 @@
             <tbody>
                 {% for item in items %}
                     <tr>
-                        <td><{{ item.produit.titre }}/td>
+                        <td>{{ item.produit.nom }}</td>
                         <td>{{ item.produit.prix }}</td>
                         <td>{{item.quantité }}</td>
                         <td>{{ item.produit.prix * item.quantité }}</td>
                         <td>
-                            <a href="#" class= "btn btn-danger btn-sm">
+                            <a href="{{ path('remove_produit', {'id':item.produit.id})}}" class= "btn btn-danger btn-sm" >
                                 <i class="fas fa-trash"></i>
                             </a>
                             
@@ -33,11 +34,24 @@
                     
                 {% endfor %}
             </tbody>
+                
+            <tfoot>
+                <tr>
+                    <td colspan = "3" class= "text-right">Total:</td>
+                    <td> {{ total }}</td>
+                    <td></td>
+                </tr>
+            <tfoot>
+            </tfoot>
         </table>
 
+             <a href="#" class= "btn btn-success btn-sm" >
+                    Acheter
+            </a>
     {% else %}
         votre panier est vide !
 
     {% endif %}
+
 
 {% endblock %}
