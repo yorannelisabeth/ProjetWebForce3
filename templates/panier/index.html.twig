@@ -5,37 +5,59 @@
 {% block body %}
     <h1>Votre Panier</h1>
 
-    {% if items| length > 0  %}
+     {# <form action="" method="post">
+
+    <button type="submit" class="btn btn-primary">Acheter</button>
+
+    </form> #}
+    
+
+
+     {% if panier| length > 0  %}
+    
         <table class= "table">
             <thead>
                 <tr>
                     <th>Produit </th>
                     <th>Prix</th>
-                    <th>Quantité </th>
+                    {# <th>Quantité </th> #}
                     <th>Total</th>
                     <th></th>
                     </tr>
             </thead>
 
-            <tbody>
-                {% for item in items %}
-                    <tr>
-                        <td>{{ item.produit.nom }}</td>
-                        <td>{{ item.produit.prix }}</td>
-                        <td>{{item.quantité }}</td>
-                        <td>{{ item.produit.prix * item.quantité }}</td>
-                        <td>
-                            <a href="{{ path('remove_produit', {'id':item.produit.id})}}" class= "btn btn-danger btn-sm" >
+            <tbody> 
+             {% set total = 0 %}  
+            {# initialisation variable total  #}
+
+                 {% for item in panier %} 
+                 <pre>
+    {{ dump(panier) }}
+</pre>
+                      {# {% set total = total + item.produit.prix * item.quantite %} #}
+                      <tr> 
+                         <td>{{ item }}</td>
+                        {# <td>{{ item.prix }}</td>   
+                         <td>{{item.quantite }}</td>  #}
+                        {# <td>{{ panier.produit.prix * item.quantite }}</td> #}
+                        {# <td>
+                            <a href="{{ path('remove_produit', {'id':item.id})}}" class= "btn btn-danger btn-sm" >
                                 <i class="fas fa-trash"></i>
                             </a>
                             
-                        </td>
-                    </tr>
-                    
+                        </td> #}
+                    </tr> 
+                    <form action="" method="post">
+
+    <button type="submit" class="btn btn-primary">Acheter</button>
+<pre>
+    {{ dump(panier) }}
+</pre>
+    </form>
                 {% endfor %}
-            </tbody>
+            </tbody> 
                 
-            <tfoot>
+             <tfoot>
                 <tr>
                     <td colspan = "3" class= "text-right">Total:</td>
                     <td> {{ total }}</td>
@@ -43,15 +65,13 @@
                 </tr>
             <tfoot>
             </tfoot>
-        </table>
-
-             <a href="#" class= "btn btn-success btn-sm" >
-                    Acheter
-            </a>
+        </table> 
+   
+             
     {% else %}
         votre panier est vide !
 
     {% endif %}
 
 
-{% endblock %}
+{% endblock %} 

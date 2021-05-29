@@ -12,7 +12,7 @@
 #Page CGU  
 #Read me 
 #Forcer a se connecter
-
+#autoriser seulement ajouter au panier si connecter depuis show produit (un seul produit a la fois )
 #Front MA
 #Afficher 10 produits dans les best-sellers
 #Unsplash pour les images libre de droit  https://unsplash.com/

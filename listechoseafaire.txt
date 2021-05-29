@@ -6,3 +6,24 @@ juste après : 'message' => 'Vous devez accepter les C.G.U.',
 
 
 -retirer les majuscules du entity Produit plus effectuer migration pour mettre a jours
+
+
+
+command to user c'est many to one
+details(quantité, produit -id, command id ,prix) to produit 
+
+details many to one produit
+details many to one commande 
+
+transformer la session en commande grace a un objet qui fera la requète sql insert into 
+
+ne pas opublier de créé un nouvelle objet pour les deux entité quer l'on ajoute a notre detail de commande ( commande et details)
+
+( creation d'un nouvelle objet d'une class existante  cf exemple : $produit = new Produit();// creation d'un objet de la class Produit)
+pour créé un requète d'insertion cf emprunt controller 
+  $entityManager->persist($emprunt);
+           // $entityManager->flush();
+
+            $entityManager->persist($command);
+            $entityManager->persist($details);
+            $entityManager->flush();

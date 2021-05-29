@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProduitRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -52,6 +54,16 @@ class Produit
      * @ORM\Column(type="string", length=255)
      */
     private $marque;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Details::class, mappedBy="produit", orphanRemoval=true)
+     */
+    private $details;
+
+    public function __construct()
+    {
+        $this->details = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -138,6 +150,36 @@ class Produit
     public function setMarque(string $marque): self
     {
         $this->marque = $marque;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Details[]
+     */
+    public function getDetails(): Collection
+    {
+        return $this->details;
+    }
+
+    public function addDetail(Details $detail): self
+    {
+        if (!$this->details->contains($detail)) {
+            $this->details[] = $detail;
+            $detail->setProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDetail(Details $detail): self
+    {
+        if ($this->details->removeElement($detail)) {
+            // set the owning side to null (unless already changed)
+            if ($detail->getProduit() === $this) {
+                $detail->setProduit(null);
+            }
+        }
 
         return $this;
     }

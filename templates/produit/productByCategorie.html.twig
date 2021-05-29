@@ -29,6 +29,7 @@
                 <td>{{ produit.prix }}</td>
                 <td>{{ produit.photo }}</td>
                 <td>{{ produit.description }}</td>
+                <td><a href="{{ path('ajout_produit', {'id': produit.id}) }}">add to shopping card</a></td>
              
             </tr>
         {% else %}

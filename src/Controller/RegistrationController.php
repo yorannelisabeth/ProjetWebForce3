@@ -30,7 +30,7 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-           // $user->setRoles([ "ROLE_ADMIN" ]); //ligne a décommenter si je souhaite créé un admin 
+            $user->setRoles([ "ROLE_ADMIN" ]); //ligne a décommenter si je souhaite créé un admin 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
