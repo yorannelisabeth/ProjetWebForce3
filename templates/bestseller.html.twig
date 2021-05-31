@@ -1,0 +1,25 @@
+
+	<section class="container produit">
+		<h2>Tous les produit </h2>
+		<div class="row">
+			{% for produit in affichageBestSeller %}
+
+				{# <article class="offset-sm-2 col-sm-8 col-md-5 offset-lg-1 col-lg-5  offset-xl-0 col-xl-4 offset-xxl-0 col-xxl-3"> #}
+                <article class="col-4">
+					<div class="card  articleProduit  " >
+						<img src="/img/{{produit.photo}}" class="card-img-top"  alt="...">
+						<div class="card-body">
+							<h5 class="card-title">{{produit.nom}}</h5>
+							<p class="card-text">{{produit.description}}</p>
+							<p class="card-text">{{produit.prix}}</p>
+
+							<a href="{{ path("produit_show", {id: produit.id}) }}" class="btn btn-ghost ">ajouter</a>
+							
+						</div>
+					</div>
+
+
+				</article>
+			{% endfor %}
+		</div>
+	</section>
