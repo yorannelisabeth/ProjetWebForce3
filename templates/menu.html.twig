@@ -6,7 +6,7 @@
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-			
+
 
 			 {% if is_granted("IS_AUTHENTICATED_FULLY") %} 
 				{# {% if app.user %} #}
@@ -18,6 +18,7 @@
 						<i class="fa fa-sign-out-alt text-secondary">déconnexion</i>
 					</a>
 				</li>
+
 		 
 				<li class="nav-item ">
 					<a class="nav-link text-secondary" href="{{ path("panier_index") }}">Panier
@@ -33,20 +34,20 @@
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item text-dark" href="{{ path("produit_index") }}">Liste des produits</a>
 
+
 							<div class="dropdown-divider"></div>
 
-									</div>
-					</li>
 
-				<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Utilisateurs
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
 							<a class="dropdown-item text-dark" href="{{ path("user_index") }}">Liste des utilisateurs</a>
 
 						</div>
 					</li>
+
 
 
 				{% endif %}
@@ -69,6 +70,7 @@
 				</li>
 
 
+
 			{% endif %}
 
 			<li class="nav-item dropdown">
@@ -80,6 +82,7 @@
 
 
 						<a class="dropdown-item text-dark" href="{{ path('productByCategorie', {category: categorie.category}) }}">{{categorie.category}}</a>
+
 						{# categorie.category :  category correspond a la valeur du chamlp category  #}
 					{% endfor %}
 				</div>

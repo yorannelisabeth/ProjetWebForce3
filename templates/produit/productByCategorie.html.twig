@@ -5,21 +5,21 @@
 {% block body %}
 	<h1>Categories/Produits</h1>
 	<section class="container produit">
-		<h2>Nos offres</h2>
+		<h2>Tous les produit </h2>
 		<div class="row">
 			{% for produit in listeproduitcategorie %}
 
-				<article class="offset-sm-2 col-sm-8 col-md-5 offset-lg-1 col-lg-5  offset-xl-0 col-xl-4 offset-xxl-0 col-xxl-3">
-
-
-					<div class="card  articleProduit  " style="width: 18rem;">
+				{# <article class="offset-sm-2 col-sm-8 col-md-5 offset-lg-1 col-lg-5  offset-xl-0 col-xl-4 offset-xxl-0 col-xxl-3"> #}
+<article class="col-6">
+					<div class="card  articleProduit  " >
 						<img src="/img/{{produit.photo}}" class="card-img-top"  alt="...">
 						<div class="card-body">
 							<h5 class="card-title">{{produit.nom}}</h5>
 							<p class="card-text">{{produit.description}}</p>
 							<p class="card-text">{{produit.prix}}</p>
 
-							<a href="#" class="btn btn-primary">ajouter</a>
+							<a href="{{ path("produit_show", {id: produit.id}) }}" class="btn btn-ghost ">ajouter</a>
+							
 						</div>
 					</div>
 
@@ -29,51 +29,11 @@
 		</div>
 	</section>
 
-{% for produit in listeproduitcategorie %}
-    <div class="card" style="width: 18rem;">
-  <img src="/img/{{produit.photo}}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{produit.nom}}</h5>
-    <p class="card-text">{{produit.description}}</p>
-    <p class="card-text">{{produit.marque}}</p>
-    <p class="card-text">{{produit.category}}</p>
-    <p class="card-text">{{produit.prix}}</p>
-    <a href="#" class="btn btn-primary">ajouter</a>
-  </div>
-</div>
-{% endfor %}
-	<table class="table">
-		<thead>
-			<tr>
 
 
-				<th>Nom</th>
-				<th>Marque</th>
-				<th>Prix</th>
 
-				<th>Photo</th>
-				<th>Description</th>
-
-			</tr>
-		</thead>
-		<tbody>
-			{% for produit in listeproduitcategorie %}
-				<tr>
-
-					<td>{{ produit.nom }}</td>
-					<td>{{ produit.marque }}</td>
-					<td>{{ produit.prix }}</td>
-					<td>{{ produit.photo }}</td>
-					<td>{{ produit.description }}</td>
-
-				</tr>
-			{% else %}
-				<tr>
-					<td colspan="8">no records found</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
 
 
 {% endblock %}
+
+

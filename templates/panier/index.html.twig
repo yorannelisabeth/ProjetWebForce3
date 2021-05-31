@@ -6,6 +6,8 @@
     <h1>Votre Panier</h1>
 
     {% if items| length > 0  %}
+    
+            
         <table class= "table">
             <thead>
                 <tr>
@@ -25,37 +27,14 @@
                         <td>{{item.quantité }}</td>
                         <td>{{ item.produit.prix * item.quantité }}</td>
                         <td>
-                            <a href="{{ path('remove_produit', {'id':item.produit.id})}}" class= "btn btn-danger btn-sm" >
+                            <a href="{{ path('remove_produit', {'id':item.produit.id})}}" class= "btn btn-danger btn-sm" > 
                                 <i class="fas fa-trash"></i>
                             </a>
                             
                         </td>
                     </tr>
                     
-
-              
-            {% endfor %}
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="3" class="text-right">Total :</td>
-                <td>{{ total }} €</td>
-                <td></td>
-            </tr>
-        </tfoot>
-    </table>
-    <div class="col mb-2">
-            <div class="row">
-                <div class="col-sm-12  col-md-6">
-                    <a class="btn btn-block btn-light" href="{{ path('home') }}">Continue Shopping</a>
-                </div>
-            </div>
-        </div>
-{% else %}
-    <p class="text-dark">Votre panier est vide</p>
-{% endif %}
-
- {% endfor %}
+                {% endfor %}
             </tbody>
                 
             <tfoot>
@@ -68,6 +47,7 @@
             </tfoot>
         </table>
 
+
              <a href="#" class= "btn btn-success btn-sm" >
                     Acheter
             </a>
@@ -75,6 +55,10 @@
         votre panier est vide !
 
     {% endif %}
+ 
 
 
 {% endblock %}
+
+
+

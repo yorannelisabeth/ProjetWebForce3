@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SearchController!{% endblock %}
+{% block title %}Votre recherche{% endblock %}
 
 {% block body %}
-    <div class="card-columns">
+
+    <section class="container produit">
+    <div class="row">
     {# //card-column   card-deck #}
         {% for p in Produit %}
             {{include("produit/carte.html.twig", {produit:p}) }}    
@@ -13,8 +15,11 @@
                 {{include("livre/vignette.html.twig",{livre: l})}}  
             #}
             {% else %}
-                  {{message|default("Il n'y a aucun produit correspondants frérot")}}
+                  {{message|default("Il n'y a aucun produit correspondants ")}}
         {% endfor %}
     </div>
+   </section>
+
+
 
 {% endblock %}
