@@ -74,7 +74,7 @@ class ProduitRepository extends ServiceEntityRepository
         return $this->createQueryBuilder("p")
         // ->select("*")
         ->orderBy("p.category")
-        ->setMaxResults(10)
+        ->setMaxResults(3)
         ->getQuery()
         ->getResult()
         
