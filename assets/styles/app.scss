@@ -4,67 +4,70 @@
 
 @import "~bootstrap/scss/bootstrap";
 
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;400&display=swap');
+
+
 //****************************************************//
-body {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-}
+// body {
+// 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+// 	background-size: 400% 400%;
+// 	animation: gradient 15s ease infinite;
+// }
 
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
+// @keyframes gradient {
+// 	0% {
+// 		background-position: 0% 50%;
+// 	}
+// 	50% {
+// 		background-position: 100% 50%;
+// 	}
+// 	100% {
+// 		background-position: 0% 50%;
+// 	}
+// }
 
+
+body{
+    background:rgb(245, 254, 255) ;
+    font-family: 'Dosis', sans-serif;
+
+}
 // -----------------produit --------------------
 
-// .produit{
-//     background-color: rgb(236, 221, 221);
-//     padding-bottom: 30px;
-// } 
+.produit{
+    background-color: white;
+    padding-bottom: 30px;
+   
+} 
 
-// .articleProduit{
-//     /* border: 6px solid yellow; */
-//     border-radius:  6% 6% 0% 0%;
+.articleProduit{
     
-//     box-shadow:15px 5px 5px 5px rgb(117, 114, 114)
+    margin-bottom: 40px; 
+    border: 1px solid rgb(224, 222, 222)
    
-// }
-// .produit article{
-//    /* border: 6px solid; */
-//     margin-top: 25px;
-//     padding-top: 5px;
-//     padding-bottom: 5px;
-//     box-shadow:15px 5px 5px 5px rgb(117, 114, 114)
-// }
-// .produit article img{
-//     border: 20px solid rgb(202, 194, 194);
-//     border-radius: 6% 6% 0% 0%;
-//     padding: 5px;
+}
+
+.produit article img{
+     border: 20px solid white;
+  
+    padding: 2px;
     
    
-// }
-// .card-body{
-//     background-color: rgb(202, 194, 194);
-    
-// }
-// .btn-primary{
-//     background-color: rgb(70, 67, 67);
-//     border: 4px solid;
-// }
-// .card-img-top{
-//     width: 200px;
-//     height: 200px;
-// }
-.card{
-    background: rgb(202, 194, 194);
-    border: 4px solid red;
-   
- } 
+}
+
+
+
+.btn-ghost {
+    color: #4A4A4A;
+    border: 1px solid #4A4A4A;
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-weight: lighter;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+  
+  .btn-ghost:hover {
+    opacity: 1;
+  }
+  
