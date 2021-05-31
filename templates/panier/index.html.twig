@@ -53,9 +53,9 @@
         </div>
 {% else %}
     <p class="text-dark">Votre panier est vide</p>
+{% endif %}
 
-
-
+ {% endfor %}
             </tbody>
                 
             <tfoot>
@@ -71,7 +71,7 @@
              <a href="#" class= "btn btn-success btn-sm" >
                     Acheter
             </a>
-
+    {% else %}
         votre panier est vide !
 
     {% endif %}

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\ProduitRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,34 +18,38 @@ class PanierController extends AbstractController
 
     
         $panier = $session -> get('panier', []); 
+        // $voirpanier = dd($panier);
 
-        $panierProduits = [];
+        // $panierProduits = [];
 
-        foreach($panier as $id => $quantité){
+        // foreach($panier as $id => $quantite){
 
-            $panierProduits[] = [
-                'produit' => $produitRepository -> find($id),
+        //     $panierProduits[] = [
+        //         'produit' => $produitRepository -> find($id),
 
-                'quantité' => $quantité
-            ];
-        }
-        $total = 0 ;
+        //         'quantite' => $quantite
+        //     ];
+        // }
+        // $total = 0 ;
 
-        foreach ($panierProduits as $item){
-            $totalItem = $item['produit']->getprix() * $item['quantité'];
-            $total += $totalItem;
-        }
+        // foreach ($panierProduits as $item){
+        //     $totalItem = $item['produit']->getprix() * $item['quantite'];
+        //     $total += $totalItem;
+        // }
 
         return $this->render('panier/index.html.twig', [
+           
 
-            'items' => $panierProduits , 'liste_categories'=>$produitRepository->listecategorie('$categorie'),
-            'total' => $total
+            'panier' => $panier ,
+            'liste_categories'=>$produitRepository->listecategorie('$categorie'),
+            
+            // 'total' => $total
         ]);
     }
 
     #[Route('/ajout/{id}', name: 'ajout_produit')]
 
-    public function ajoutProduit($id, SessionInterface $session ) {
+    public function ajoutProduit($id,$nom ,SessionInterface $session ) {
         //sessionInterface qui est obtenu par le conteneur de servive par la commande 
         //symfony console debug:autowiring session
 
@@ -55,6 +60,7 @@ class PanierController extends AbstractController
         if(!empty($panier[$id])){
 
             $panier[$id]++;
+            $panier[$nom]++;
         }
         else{
             $panier [$id] = 1;// l'id qui respresente l'id d'un produit du panier a laquelle j'attribue la valeur 1 
