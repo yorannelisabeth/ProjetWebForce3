@@ -31,13 +31,33 @@
                         </td>
                     </tr>
                     
-                {% endfor %}
-            </tbody>
-        </table>
-
-    {% else %}
-        votre panier est vide !
-
-    {% endif %}
-
+                <td>
+                        <a href="{{ path('cart_remove', {'id': item.product.id}) }}" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">Total :</td>
+                <td>{{ total }} €</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="col mb-2">
+            <div class="row">
+                <div class="col-sm-12  col-md-6">
+                    <a class="btn btn-block btn-light" href="{{ path('shop') }}">Continue Shopping</a>
+                </div>
+                <div class="col-sm-12 col-md-6 text-right">
+                    <a class="btn btn-lg btn-block btn-success text-uppercase" >Checkout</a>
+                </div>
+            </div>
+        </div>
+{% else %}
+    <p class="text-dark">Votre panier est vide</p>
+{% endif %}
 {% endblock %}
