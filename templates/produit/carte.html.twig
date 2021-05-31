@@ -1,8 +1,8 @@
-<div class="card col-6" style="width: 18rem;">
-  <img class="card-img-top" src="/img/{{ produit.photo}}" alt="pas d'image">
-  <div class="card-body">
-    <h5 class="card-title">{{ produit.nom }}</h5>
-    <p class="card-text">{{ produit.marque }}</p> 
-    <a href="{{ path("produit_show", {id: produit.id}) }}" class="btn btn-primary">Regarder!</a>
+  <div class="card col-6" style="width: 18rem;">
+    <img class="card-img-top" src="/img/{{ produit.photo}}" alt="pas d'image">
+    <div class="card-body">
+      <h5 class="card-title">{{ produit.nom }}</h5>
+      <p class="card-text">{{ produit.marque }}</p> 
+      <a href="{{ path("produit_show", {id: produit.id}) }}" class="btn btn-primary">Regarder!</a>
+    </div>
   </div>
-</div>
