@@ -6,6 +6,8 @@
     <h1>Votre Panier</h1>
 
     {% if items| length > 0  %}
+    
+            
         <table class= "table">
             <thead>
                 <tr>
@@ -25,7 +27,7 @@
                         <td>{{item.quantité }}</td>
                         <td>{{ item.produit.prix * item.quantité }}</td>
                         <td>
-                            <a href="{{ path('remove_produit', {'id':item.produit.id})}}" class= "btn btn-danger btn-sm" >
+                            <a href="{{ path('remove_produit', {'id':item.produit.id})}}" class= "btn btn-danger btn-sm" > 
                                 <i class="fas fa-trash"></i>
                             </a>
                             
@@ -45,6 +47,7 @@
             </tfoot>
         </table>
 
+
              <a href="#" class= "btn btn-success btn-sm" >
                     Acheter
             </a>
@@ -52,6 +55,8 @@
         votre panier est vide !
 
     {% endif %}
-
+ 
 
 {% endblock %}
+
+
