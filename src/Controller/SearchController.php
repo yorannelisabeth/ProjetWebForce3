@@ -26,6 +26,7 @@ class SearchController extends AbstractController
         return $this->render('search/index.html.twig',
         compact("mot","Produit","liste_categories"),
         
+        
     );
 
         //return $this->render('search/index.html.twig', [
