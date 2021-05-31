@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-light mb-3">
-	<a class="navbar-brand text-dark" href="{{ path("home") }}">Beauty & Wellness</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+	<a class="navbar-brand" href="{{ path("home") }}">Beauty & Wellness</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
@@ -8,46 +8,47 @@
 		<ul class="navbar-nav mr-auto">
 
 
-			 {% if is_granted("IS_AUTHENTICATED_FULLY") %} 
+			{% if is_granted("IS_AUTHENTICATED_FULLY") %}
+
 				{# {% if app.user %} #}
 
-			
 
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path("app_logout") }}">
-						<i class="fa fa-sign-out-alt text-secondary">déconnexion</i>
+						<i class="fa fa-sign-out-alt">déconnexion</i>
 					</a>
 				</li>
 
-		 
+
 				<li class="nav-item ">
-					<a class="nav-link text-secondary" href="{{ path("panier_index") }}">Panier
+					<a class="nav-link" href="{{ path("panier_index") }}">Panier
 					</a>
 				</li>
+
 
 				{% if is_granted("ROLE_ADMIN") %}
 
-				<li class="nav-item dropdown">
+					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Nos Produits
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item text-dark" href="{{ path("produit_index") }}">Liste des produits</a>
-
+							<a class="dropdown-item" href="{{ path("produit_index") }}">Liste des produits</a>
 
 							<div class="dropdown-divider"></div>
-
-
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Utilisateurs
-						</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-							<a class="dropdown-item text-dark" href="{{ path("user_index") }}">Liste des utilisateurs</a>
 
 						</div>
 					</li>
 
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Utilisateurs
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="{{ path("user_index") }}">Liste des utilisateurs</a>
+
+						</div>
+					</li>
 
 
 				{% endif %}
@@ -55,7 +56,7 @@
 
 
 				<li class="nav-item">
-					<a class="nav-link text-dark" href="{{ path("app_login") }}">
+					<a class="nav-link" href="{{ path("app_login") }}">
 						<i class="fa fa-user"></i>
 
 						{# {{ app.user.username }} #}
@@ -65,24 +66,22 @@
 				</li>
 
 				<li class="nav-item ">
-					<a class="nav-link text-dark" href="{{ path("app_register") }}">Inscription
+					<a class="nav-link" href="{{ path("app_register") }}">Inscription
 					</a>
 				</li>
-
 
 
 			{% endif %}
 
 			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Catégories
 				</a>
-				<div class="dropdown-menu text-dark" aria-labelledby="navbarDropdown">
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					{% for categorie in liste_categories %}
 
 
-						<a class="dropdown-item text-dark" href="{{ path('productByCategorie', {category: categorie.category}) }}">{{categorie.category}}</a>
-
+						<a class="dropdown-item" href="{{ path('productByCategorie', {category: categorie.category}) }}">{{categorie.category}}</a>
 						{# categorie.category :  category correspond a la valeur du chamlp category  #}
 					{% endfor %}
 				</div>
@@ -93,10 +92,7 @@
 
 		<form class="form-inline my-2 my-lg-0" action="{{ path("search") }}">
 			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="mot">
-			<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Recherche</button>
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 		</form>
 	</div>
 </nav>
-
-
-	
