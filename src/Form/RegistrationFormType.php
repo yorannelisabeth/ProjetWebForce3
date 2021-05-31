@@ -84,7 +84,7 @@ class RegistrationFormType extends AbstractType
 
             ])
             ->add("nom" , TextType::class,[
-                "label" => "nom",
+                "label" => "Nom",
                 "required" => false,
                 'constraints' => [
                     new NotBlank([
@@ -104,7 +104,7 @@ class RegistrationFormType extends AbstractType
 
             ])
             ->add("adresse" , TextType::class,[
-                "label" => "adresse",
+                "label" => "Adresse",
                 "required" => false,
                 'constraints' => [
                     new NotBlank([
@@ -119,7 +119,7 @@ class RegistrationFormType extends AbstractType
 
             ])
             ->add("email" , TextType::class,[
-                "label" => "email",
+                "label" => "Email",
                 "required" => false,
                 'constraints' => [
                     new NotBlank([
@@ -133,7 +133,7 @@ class RegistrationFormType extends AbstractType
 
             ])
             ->add("code_postal" , TextType::class,[
-                "label" => "code_postal",
+                "label" => "Code_postal",
                 "required" => false,
                 'constraints' => [
                     new NotBlank([

@@ -29,7 +29,7 @@ class ProduitController extends AbstractController
     #[Route('/new', name: 'produit_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManager $em , ProduitRepository $pr )
     {
-        $produit = new Produit();
+        $produit = new Produit();// creation d'un objet de la class Produit
         $formProduit = $this->createForm(ProduitType::class, $produit);
         $formProduit->handleRequest($request); /* permet à $formProduit de gérer les informations envoyées par le 
         navigateur */
