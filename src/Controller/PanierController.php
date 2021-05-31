@@ -38,7 +38,7 @@ class PanierController extends AbstractController
         // }
 
         return $this->render('panier/index.html.twig', [
-            // 'voirpanier'=> $voirpanier,
+           
 
             'panier' => $panier ,
             'liste_categories'=>$produitRepository->listecategorie('$categorie'),
