@@ -134,12 +134,14 @@ main{
      
    
  }
+
  //------------------css non fonctionnel-----------------------------
 //  .card{
 //      margin: 40px 0;
 //      background: linear-gradient(45deg, black, transparent);
 //      color: white;
 //      font-weight: 600;
+
    
 //  }
  
@@ -194,3 +196,17 @@ main{
   }
   
 
+  /* --------------------------- show ----------------- */
+.space {
+	width: 60%;
+	padding : 20px;
+	margin: 30px;
+	border: 1px solid #4A4A4A;
+	border-radius: 5px;
+
+}
+
+.space img{
+	height : 240px;
+	width: 480px;
+}
