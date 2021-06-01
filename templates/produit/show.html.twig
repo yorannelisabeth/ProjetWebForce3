@@ -1,54 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Produit{% endblock %}
+{% block title %}{{ produit.nom }}{% endblock %}
 
 {% block body %}
-    <h1>Produit</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ produit.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ produit.Nom }}</td>
-            </tr>
-            <tr>
-                <th>Marque</th>
-                <td>{{ produit.marque }}</td>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <td>{{ produit.Category }}</td>
-            </tr>
-            
-            <tr>
-                <th>Stock</th>
-                <td>{{ produit.Stock }}</td>
-            </tr>
-            <tr>
-                <th>Prix</th>
-                <td>{{ produit.Prix }}</td>
-            </tr>
-            <tr>
-                <th>Photo</th>
-                <td> <img src="/img/{{ produit.Photo }}" alt="oké"></td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ produit.Description }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <!-- <div class="card  articleProduit  " > -->
+<div class="container">
+    <div class="space">
+        <div class="row">
+            <div class="col-md-5">
+                <img src="/img/{{produit.photo}}" alt="{{produit.nom}}" class="img-fluid">
+            </div>
+            <div class="col-md-7 my-auto">
+                <h3>{{produit.nom}}</h3>
+                <hr />
+                <p> <strong>Marque :</strong> {{produit.marque }}</p>
+                <hr />
+                <span class="product-page-price"> <strong>Prix :</strong>{{ produit.prix}} €</span>
+                <hr />
+                <p> <strong>Descrition</strong> {{ produit.description }}</p>
+                <hr />
+                <p> <strong>Stock :</strong> {{ produit.stock }}</p>
+                <hr />
+                <a href="{{ path('ajout_produit', {'id': produit.id}) }}" class= "btn btn-success btn-sm">
+                    <i class="fas fa-shopping-cart"> Ajouter au panier</i>
+                </a>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <a href="{{ path('produit_index') }}">back to list</a>
+
+                    {{ include('produit/_delete_form.html.twig') }}
+
+                {% endif %}
     
-{% if is_granted("ROLE_ADMIN") %}
-    <a href="{{ path('produit_index') }}">back to list</a>
 
-    <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-    {{ include('produit/_delete_form.html.twig') }}
-
-    {% endif %}
-{% endblock %}
+{% endblock %} 
