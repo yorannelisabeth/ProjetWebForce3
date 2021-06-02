@@ -1,18 +1,26 @@
-#Gestion des accès   /Ok
-#Produits et user (admin)   /Ok
-#Gestion des photos (admin)  /Ok
-#Affichage des produits (en fonctions des catégories)  YE
-#Gestion du panier     MC
+#Gestion des accès   /Ok (Yorann)
+#Produits et user (admin)   /Ok (Yorann)
+#Gestion des photos (admin)  /Ok (Thomas) 
+#Affichage des produits (en fonctions des catégories)  (Yorann)
+#Gestion du panier     (Morel)
 #Possibilité d'acheter  
 #Identifiants oubliés (bonus), mail…  
-#Search bar de recherche     TC
-#Vérification des champs   FM
-#Inscription et formulaire restriction
-#Affichage des photos
+#Search bar de recherche     (Thomas)
+#Vérification des champs   (Franck)
+#Inscription et formulaire (Yorann)
+#Affichage des photos Thomas et (Yorann)
 #Page CGU  
-#Read me 
+#Read me (Franck)
 #Forcer a se connecter
-#autoriser seulement ajouter au panier si connecter depuis show produit (un seul produit a la fois )
-#Front MA
-#Afficher 10 produits dans les best-sellers
-#Unsplash pour les images libre de droit  https://unsplash.com/
+#autoriser seulement ajouter au panier si connecter depuis show produit (un seul produit a la fois )(Yorann)
+#Front home page (Yorann  Marie  Thomas)
+#Front produit et bestseller (Yorann)
+#Front formulaire (Franck)
+#Front panier (Morel)
+#Afficher 10 produits dans les best-sellers (Yorann)
+#Nav barre +gestion (Yorann )
+#Footer (Marie et Franck)
+#Base de donnée et relation (Yorann ,Thomas , Morel)
+#Gestion github (Yorann)
+#Maquette wireframe figma (Marie)
+#Unsplash pour les images libre de droit  https://unsplash.com/ (Thomas)
