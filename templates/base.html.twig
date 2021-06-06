@@ -8,9 +8,11 @@
 			{% endblock %}
 		</title>
 		{# Run `composer require symfony/webpack-encore-bundle`
-						           and uncomment the following Encore helpers to start using Symfony UX #}
+								           and uncomment the following Encore helpers to start using Symfony UX #}
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
+			<link rel="preconnect" href="https://fonts.gstatic.com">
+			<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 		{% endblock %}
 
 		{% block javascripts %}
@@ -24,8 +26,8 @@
 	{% endblock %}
 
 	{% block body %}
-		<body>
-			<div class="container">
+		<body class="container">
+			
 
 
 				{% for type,messages in app.flashes %}
@@ -45,12 +47,12 @@
 				</h1>
 
 
-			</div>
+			
 		</body>
 	{% endblock %}
 	{% block footer  %}
-		<br>
-		<footer class="text-center text-lg-start bg-light text-muted ">
+	
+		<footer class="text-center text-lg-start bg-light text-muted container">
 
 			{{include("footer.html.twig")}}
 
